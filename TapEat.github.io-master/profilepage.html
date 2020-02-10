@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+.cfmbtn {
+  display: inline-block;
+  color: #fff;
+  background-color: green;
+  font-weight: 700;
+  margin-top: 90px;
+  margin-bottom: 15px;
+  padding: 14px 20px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.setProfilebtn {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDibZ0cXIpKIBICo0kYE_sd7N_E8oTPR0k",
+    authDomain: "restaurant-management-profile.firebaseapp.com",
+    databaseURL: "https://restaurant-management-profile.firebaseio.com",
+    projectId: "restaurant-management-profile",
+    storageBucket: "restaurant-management-profile.appspot.com",
+    messagingSenderId: "1016021417902",
+    appId: "1:1016021417902:web:d099183e20b600680b523f",
+    measurementId: "G-E2N8MC35QC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function writeData() {
+        firebase.database().ref("User").push({
+            name: document.getElementById("nameField").value,
+            email: document.getElementById("emailField").value,
+            comment: document.getElementById("commentField").value  
+        })
+    }
+</script>
+
+<form>
+  <div class="layer-2" style="position: relative;"">
+    <h1 style="justify-content: center; font-size: 3em;">Profile Setup</h1>
+    <p>Please fill out this preference page.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Name: " name="name" id="nameField" required style="width: 80vw;">
+    <br>
+    <label for="email"><b>Email Address</b></label>
+    <input type="text" placeholder="Email Address: " name="email" id="emailField" required style="width: 80vw;">
+    <input type="checkbox"
+
+    <label for="comment"><b>Describe your preferences. Mention any allergies or other concerns so your restaurant staff can best serve your needs.</b></label> 
+
+    <br> 
+    <textarea name="comments" id="commentField"></textarea> 
+<br>
+    <button type="submit" onclick="writeData()" class="cfmbtn">Set Profile</button>
+  </div>
+  
+</form>
+
+</body>
+</html>
+

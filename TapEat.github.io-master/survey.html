@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  h1{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 40px;
+  }
+  h3{
+    font-size: 15px;
+    text-align: left;
+    font-weight: 500;
+  }
+  body {
+            background-color: rgba(86,131,168);
+            font-family: "Times New Roman", 'Times New Roman', Times, serif;
+            padding-top: 20px;
+        }
+       
+  form {
+    background: #fff;
+    padding: 0px 30px 80px;
+    box-shadow: 
+        0px 0px 0px 5px rgba( 255,255,255,0.4 ), 
+        0px 4px 20px rgba( 0,0,0,0.33 );
+    max-width: 800px;
+    margin: auto;
+  }
+  .sep {
+                height: 2px;
+                background: #FCE47C;
+                font-weight: 300;
+                width: 861px;
+                margin: 0px -30px;
+    }
+    .cfmbtn{
+      display: inline-block;
+      color: #fff;
+      background-color: green;
+      font-weight: 700;
+      margin-top: 90px;
+      margin-bottom: 15px;
+      padding: 14px 20px;
+      border-radius: 4px;
+      border: none
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDOf1M5G8WvF1xuJuQxqp9CZhpqBW-41pk",
+    authDomain: "restaurant-management-2b886.firebaseapp.com",
+    databaseURL: "https://restaurant-management-2b886.firebaseio.com",
+    projectId: "restaurant-management-2b886",
+    storageBucket: "restaurant-management-2b886.appspot.com",
+    messagingSenderId: "300530417963",
+    appId: "1:300530417963:web:9c78b5daa7a1599dd7456e",
+    measurementId: "G-DX3R5CW7SF"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function writeData() {
+        firebase.database().ref("User").push({
+            name: document.getElementById("nameField").value,
+            email: document.getElementById("emailaddress").value,
+            description: document.getElementById("experience").value,
+            recipe: document.getElementById("favRecipe").value
+        })
+       
+
+        
+    }
+</script>    
+<section class="layer layer-2" >
+<form name = "survey">
+  <h1>Survey</h1>
+  <div class = sep></div>
+  <h3><strong>Name: </strong></h3>
+  <div></div>
+  <input type="text" placeholder="name" id="nameField">
+  <div></div>
+  <h3><strong>Email Address: </strong></h3>
+  <input type="text" placeholder="email" id="emailaddress"
+  <div></div>
+  <h3>3. How did you hear about us?</h3>
+  <p> 
+    <input type="radio" name="AppSource" value=1> Friends/ Families <div></div>
+    <input type="radio" name="AppSource" value=2> Online Advertisement <div></div><br>
+    <input type="radio" name="AppSource" value=3> Newspapers <div></div><br>
+    <input type="radio" name="AppSource" value=4> Search Engines<div></div><br>
+    </p>
+  <div></div>
+  <h3><strong>3. Describe your experience at our restaurant</strong></h3>
+  <TEXTAREA name="Comments" cols=60 rows=6 id="experience"></TEXTAREA>
+
+  <h3><strong>4. What is your favorite recipe at our restaurant?</strong></h3>
+  <input type="text" placeholder="favorite recipe" id="favRecipe">
+
+  <div></div><br>
+  <input id="surveySubmit" type="button" class="cfmbtn" onclick = "$('#info').load('thanks.html'); writeData()" value="Confirm">
+  <!--<button onclick="writeData()">Submit</button>-->
+</form>
+</section>
+</body>
+</html>

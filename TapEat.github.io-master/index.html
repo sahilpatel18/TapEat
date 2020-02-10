@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Mobile template</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Monoton&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="./style.css">
+  
+<meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1, maximum-scale=1">
+<style>
+  h6 {
+    font-family: 'EB Garamond', serif;
+    font-size: 50px;
+  }
+</style> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+  $(document).ready(function(){
+     $('#info').load('registration.html')
+
+    $('div div#buttons button').click(function(){
+      var $this = $(this);
+      var target = $this.data('target'); 
+      console.log(target)
+
+
+      $('#info').load(target)
+
+      return false;
+    })
+  })
+</script>
+
+</head>
+<body>
+<div class="">
+<script>
+function callAssistance() {
+  alert("Assistance is on the way! Thanks for waiting.")
+}
+</script> 
+  <!-- 
+  ======================================== 
+  LAYER 1
+  ======================================== 
+  -->
+ <!---->
+  <div class="layer layer-1 black white-text" style="color: antiquewhite;">
+    <div id = "buttons" class="center">
+      <button id="buttonMenu" type="button" data-target = "menu.html"><i class="material-icons dinermenu-btn">restaurant_menu</i></input>
+      <button id="buttonSeating" type="button" data-target="seating.html"><i class="material-icons seat-btn">event_seat</i></input>
+      <button id="buttonWaiter" type="button"><i class="material-icons notif-btn" onclick="callAssistance()">notifications_active</i></input>
+      <button id="buttonProfile" type="button" data-target = "profilepage.html"><i class="material-icons personal-btn">person</i></input>
+      <button id="buttonCart" type="button" data-target = "cart.html"><i class="material-icons cart-btn">shopping_cart</i></input>
+    </div>
+  </div>
+
+  <div id = "info"></div>
+
+
+  
+  <!-- 
+  ======================================== 
+  LAYER 2 
+  ======================================== 
+  -->
+  
+  
+      <!--
+      <img id = "floorplan" src="/floor plan.png" style="width: device-width;">
+      -->
+      <!--
+      <div  style="width: device-width;">
+      <div class = "flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        </div>
+      </div>
+
+      </div>
+    -->
+    
+    <!--<div class = "form">
+      <div style = "margin-top: 100px; font-weight: bold;">
+      <h6 style="font-family: 'EB Garamond', serif;">Seat Reservation</h6>
+      <br><br>
+      <font size = "5px" style = "font-family: 'EB Garamond', serif;"><b>Seat: 12</font>
+      <br><br>
+      </div>
+      <div style="margin-bottom: 0px valign-wrapper">
+      <input type="button" class = cfmbtn value="Confirm"/>
+      <input type="button" class = cancelbtn value="Cancel"/><br>
+      </div>
+    </div>
+    
+    </div>-->
+  </div>
+  
+  
+</div>
+<!-- partial -->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.js'></script>
+  <script src="script.js"></script>
+  <script> 
+  </script>
+

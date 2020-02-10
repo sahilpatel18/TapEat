@@ -1,0 +1,23 @@
+<div class = "layer layer-2 z-depth-1">
+      <div class = "form">
+            <div id="mainLayer" class="center">
+            <div style = "margin-top: 100px; font-weight: bold;">
+            <h6 style="font-family: 'EB Garamond', serif;">Seat Reservation</h6>
+            <br><br>
+            <font size = "5px" style = "font-family: 'EB Garamond', serif;"><b id="seats"></b></font>
+            <br><br>
+            </div>
+            <div style="margin-bottom: 0px valign-wrapper">
+            <input type="button" class = cfmbtn onclick = "$('#info').load('menu.html')" value="Confirm"/>
+            <input type="button" class = cancelbtn onclick = "$('#info').load('seating.html')" value="Cancel"/><br>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const seatChosen = urlParams.get('seat');
+      document.getElementById("seats").innerHTML = "Seat: "+seatChosen;
+  </script>
